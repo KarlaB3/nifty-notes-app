@@ -1,3 +1,5 @@
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { useLocalStorage } from "react-use";
 
 // Set up initial data structure for Notes
 const initialNotesData = [
@@ -38,4 +40,48 @@ const notesReducer = (previousState, instructions) => {
             console.log("Invalid instruction type provided, it was " + instructions.type);
             return previousState;
     }
+}
+
+// Set reducer state and reducer dispatch to global availability
+export const NoteDataContext = createContext(null);
+export const NoteDispatchContext = createContext(null);
+
+// Custom hooks that provide direct access to a reducer switch case
+export function useNoteData() {
+    return useContext(NoteDataContext);
+}
+
+export function useNoteDispatch() {
+    return useContext(NoteDispatchContext);
+}
+
+// Set up provider to make data available globally. The provider wraps around the component tree so any child component
+// has access to the note data via useNoteData and useNoteDispatch
+export default function NotesProvider(props) {
+    const [notesData, notesDispatch] = useReducer(notesReducer, initialNotesData);
+
+    const[persistentData, setPersistentData] = useLocalStorage("notes", initialNotesData);
+
+    useEffect(() => {
+        //notesDispatch()
+    }, []);
+    
+    // Confirm local storage is updating
+    useEffect(() => {
+        console.log("Local storage: " + persistentData);
+    }, [persistentData]);
+
+    // If the dispatch function runs, autosave changes to notes from reducer state into local storage
+    useEffect(() => {
+        setPersistentData(notesData);
+    }, [notesData]);
+
+    return (
+        <NoteDataContext.Provider value={notesData}>
+            <NoteDispatchContext.Provider value={notesDispatch}>
+                {props.children}
+            </NoteDispatchContext.Provider>
+        </NoteDataContext.Provider>
+    )
+
 }
