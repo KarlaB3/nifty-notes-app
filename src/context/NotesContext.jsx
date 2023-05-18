@@ -18,9 +18,20 @@ const notesReducer = (previousState, instructions) => {
     let stateEditable = [...previousState];
 
     switch (instructions.type){
+        case "setup": 
+        console.log("Apply persistent data to state now.");
+        // instructions.data is provided when the dispatch function is called
+        stateEditable = instructions.data;
+        // Data that is returned is now the newest version of state
+        return stateEditable;
         case "create":
-            console.log("To do: create note and add to state");
-            break;
+            console.log("To do:");
+
+            let newNote = instructions.newNote;
+            stateEditable.push(newNote);
+
+            return stateEditable;
+
         case "update":
             console.log("To do: update a specific note and overwrite the current state of the note");
             break;
@@ -63,7 +74,8 @@ export default function NotesProvider(props) {
     const[persistentData, setPersistentData] = useLocalStorage("notes", initialNotesData);
 
     useEffect(() => {
-        //notesDispatch()
+        // On app start, overwrite notesData with persistentData
+        notesDispatch({type: "setup", data: persistentData});
     }, []);
     
     // Confirm local storage is updating
