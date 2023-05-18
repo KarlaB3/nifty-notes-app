@@ -57,7 +57,7 @@ const notesReducer = (previousState, instructions) => {
 export const NoteDataContext = createContext(null);
 export const NoteDispatchContext = createContext(null);
 
-// Custom hooks that provide direct access to a reducer switch case
+// Custom hooks that provide direct access to a specific data point from the reducer
 export function useNoteData() {
     return useContext(NoteDataContext);
 }
