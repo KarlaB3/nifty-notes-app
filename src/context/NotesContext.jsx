@@ -76,6 +76,7 @@ export default function NotesProvider(props) {
     useEffect(() => {
         // On app start, overwrite notesData with persistentData
         notesDispatch({type: "setup", data: persistentData});
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     // Confirm local storage is updating
@@ -86,6 +87,7 @@ export default function NotesProvider(props) {
     // If the dispatch function runs, autosave changes to notes from reducer state into local storage
     useEffect(() => {
         setPersistentData(notesData);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [notesData]);
 
     return (
