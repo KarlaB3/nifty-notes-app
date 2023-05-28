@@ -68,25 +68,25 @@ export default function NoteForm(props){
 
 	return(
 		<div>
-			<form class="create">
-			<label class="note-label">Title:</label>
-			<input class="create-input" type="text" name="title" value={localTitle} onChange={(event) => setLocalTitle(event.target.value)} />
+			<form className="create">
+			<label className="note-label">Title:</label>
+			<input className="create-input" type="text" name="title" value={localTitle} onChange={(event) => setLocalTitle(event.target.value)} />
 
-			<label class="note-label">Description:</label>
+			<label className="note-label">Description:</label>
 			<input class="create-input" type="text" name="description" value={localDescription} onChange={(event) => setLocalDescription(event.target.value)} />
 
-			<label class="note-label">Is Note Completed?:</label>
-			<input class="create-input" type="checkbox" name="isCompleted" value={localIsCompleted} checked={localIsCompleted} onChange={(event) => setLocalIsCompleted(!localIsCompleted)} />
+			<label className="note-label">Is Note Completed?:</label>
+			<input className="create-input" type="checkbox" name="isCompleted" value={localIsCompleted} checked={localIsCompleted} onChange={(event) => setLocalIsCompleted(!localIsCompleted)} />
 
-			<label class="note-label">Due Date:</label>
-			<input class="create-input" type="date" name="dueDate" value={new Date (localDueDate).toISOString().split('T')[0]} onChange={(event) => setLocalDueDate(event.target.value)} />
+			<label className="note-label">Due Date:</label>
+			<input className="create-input" type="date" name="dueDate" value={new Date (localDueDate).toISOString().split('T')[0]} onChange={(event) => setLocalDueDate(event.target.value)} />
 
 			{/* This will be handled by the reducer, not the human: */}
 			{/* <label>Created At:</label>
 			<input type="text" name="createdAtDate" value={localCreatedAtDate} onChange={setLocalCreatedAtDate} /> */}
 
 			</form>
-            <button class="create-button" onClick={saveNoteToGlobal}>
+            <button className="create-button" onClick={saveNoteToGlobal}>
                 {'Save Note'}
             </button>
           
