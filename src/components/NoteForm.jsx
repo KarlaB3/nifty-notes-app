@@ -9,7 +9,6 @@
 
 import { useEffect, useState } from "react";
 import { useNoteData, useNoteDispatch } from "../contexts/NotesContext";
-import Button from 'react-bootstrap/Button';
 
 export default function NoteForm(props){
 
