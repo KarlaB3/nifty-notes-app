@@ -1,13 +1,105 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+/* base styles */
+* {
+  margin: 0, auto;
+  font-family: "Poppins";
+  color: #333;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.h1 {
+  font-size: 20px;
+  color: #008081;
+  margin-bottom: 30px;
+}
+
+.h3 {
+  font-size: 16px;
+  color: #008081;
+  margin-bottom: 30px;
+}
+
+.content {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* blog previews/list of blog items */
+.blog-preview {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+
+.blog-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
+.blog-preview h2 {
+  font-size: 20px;
+  color: #008081;
+  margin-bottom: 8px;
+}
+
+.blog-preview a {
+  text-decoration: none;
+}
+
+/* note display */
+.note-h2 {
+  padding-bottom: 10px;
+  font-size: 20px;
+  color:#008081;
+  margin-bottom: 10px;
+}
+
+.note-p {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.note-div {
+  margin: 20px 10px;
+}
+
+.note-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #008081;
+  color: #fff;
+  border: 0;
+  padding: 9px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* create new note form */
+.create {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.create-label {
+  text-align: left;
+  display: block;
+}
+
+.create-input {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.create-button {
+  background: #008081;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }

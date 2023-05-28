@@ -9,7 +9,6 @@ export default function NoteDisplay(props){
 	const globalNotesData = useNoteData();
 
 
-
 	useEffect(() => {
 		// On start, find the note in globalNotesData
 		// that has an ID matching props.id

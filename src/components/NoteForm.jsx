@@ -69,27 +69,27 @@ export default function NoteForm(props){
 
 	return(
 		<div>
-			<form>
-			<label>Title:</label>
-			<input type="text" name="title" value={localTitle} onChange={(event) => setLocalTitle(event.target.value)} />
+			<form class="create">
+			<label class="note-label">Title:</label>
+			<input class="create-input" type="text" name="title" value={localTitle} onChange={(event) => setLocalTitle(event.target.value)} />
 
-			<label>Description:</label>
-			<input type="text" name="description" value={localDescription} onChange={(event) => setLocalDescription(event.target.value)} />
+			<label class="note-label">Description:</label>
+			<input class="create-input" type="text" name="description" value={localDescription} onChange={(event) => setLocalDescription(event.target.value)} />
 
-			<label>Is Completed:</label>
-			<input type="checkbox" name="isCompleted" value={localIsCompleted} checked={localIsCompleted} onChange={(event) => setLocalIsCompleted(!localIsCompleted)} />
+			<label class="note-label">Is Note Completed?:</label>
+			<input class="create-input" type="checkbox" name="isCompleted" value={localIsCompleted} checked={localIsCompleted} onChange={(event) => setLocalIsCompleted(!localIsCompleted)} />
 
-			<label>Due Date:</label>
-			<input type="date" name="dueDate" value={new Date (localDueDate).toISOString().split('T')[0]} onChange={(event) => setLocalDueDate(event.target.value)} />
+			<label class="note-label">Due Date:</label>
+			<input class="create-input" type="date" name="dueDate" value={new Date (localDueDate).toISOString().split('T')[0]} onChange={(event) => setLocalDueDate(event.target.value)} />
 
 			{/* This will be handled by the reducer, not the human: */}
 			{/* <label>Created At:</label>
 			<input type="text" name="createdAtDate" value={localCreatedAtDate} onChange={setLocalCreatedAtDate} /> */}
 
 			</form>
-            <Button variant="primary" onClick={saveNoteToGlobal}>
+            <button class="create-button" onClick={saveNoteToGlobal}>
                 {'Save Note'}
-            </Button>
+            </button>
           
 			
 		</div>
